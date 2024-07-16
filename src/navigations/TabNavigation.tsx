@@ -60,15 +60,15 @@ export const TabData: ITabData[] = [
     iconName: "apps",
     component: Quizz,
   },
+  // {
+  //   id: 3,
+  //   tabName: "Practice",
+  //   title: "Nối từ",
+  //   iconName: "bulb",
+  //   component: Practice,
+  // },
   {
     id: 3,
-    tabName: "Practice",
-    title: "Nối từ",
-    iconName: "bulb",
-    component: Practice,
-  },
-  {
-    id: 4,
     tabName: "Puzzle",
     title: "Xếp hình",
     iconName: "extension-puzzle",

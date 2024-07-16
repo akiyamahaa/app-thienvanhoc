@@ -4,7 +4,6 @@ import { Box, ScrollView, VStack } from "@gluestack-ui/themed";
 import SlideImage from "./component/SlideImage";
 import {
   groupSea,
-  headerSlideData,
   mammal,
   softAnimal,
 } from "../../db/slide-data";
@@ -13,6 +12,7 @@ import CardList from "./component/CardList";
 import { EDisplayType } from "../../types";
 import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types";
 import { BottomTabsParams, RootStackParams } from "../../navigations/config";
+import { headerSlideData } from "../../db/home-data";
 
 type Props = {} & NativeStackScreenProps<BottomTabsParams, "Home">;
 

@@ -1,3 +1,5 @@
+import { EData } from "../db/home-data";
+
 export type RootStackParams = {
   TabNavigation: undefined;
   QuizzResult: undefined;
@@ -18,6 +20,10 @@ export type RootStackParams = {
   };
   PuzzleScreen: {
     id: number;
+  };
+  DetailCommon: {
+    id: string;
+    dataType: EData;
   };
 };
 
