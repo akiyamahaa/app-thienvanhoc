@@ -10,7 +10,6 @@ import QuizzResult from "../screens/quizz-mode/QuizzResult";
 import QuizzScreen from "../screens/quizz-mode/QuizzScreen";
 import PracticeResult from "../screens/guess-word/PracticeResult";
 import PracticeScreen from "../screens/guess-word/PracticeScreen";
-import Detail from "../screens/detail/Detail";
 import { UseTokenColor } from "../hook/UseTokenColor";
 import PuzzleScreen from "../screens/puzzle/PuzzleScreen";
 import DetailCommon from "../screens/detail/DetailCommon";
@@ -30,7 +29,6 @@ const Root = () => {
           }}
         >
           <Stack.Screen name="TabNavigation" component={TabNavigation} />
-          <Stack.Screen name="Detail" component={Detail} />
           <Stack.Screen name="DetailCommon" component={DetailCommon} />
 
           <Stack.Screen
