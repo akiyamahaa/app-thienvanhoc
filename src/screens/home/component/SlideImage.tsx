@@ -5,9 +5,9 @@ import MemberImage from "./MemberImage";
 import Carousel from "react-native-snap-carousel";
 import { getRandomArray } from "../../../utils/function";
 import { useFocusEffect } from "@react-navigation/native";
-import { IObjectSlideData, ISlideData } from "../../../db/home-data";
+import { IObjectData, IData } from "../../../db/home-data";
 export interface SlideProps {
-  data: IObjectSlideData;
+  data: IObjectData;
 }
 
 const screenWidth = Dimensions.get("screen").width;
@@ -16,9 +16,7 @@ const SlideImage = (props: SlideProps) => {
   const { data, ...rest } = props;
   const arrayData = Object.values(data);
   const [slideIndex, setSlideIndex] = useState(0);
-  const [facts, setFacts] = useState<ISlideData[]>(
-    getRandomArray(arrayData, 4)
-  );
+  const [facts, setFacts] = useState<IData[]>(getRandomArray(arrayData, 4));
 
   useFocusEffect(
     useCallback(() => {

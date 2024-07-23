@@ -42,8 +42,7 @@ const QuizzScreen = () => {
     if (i == ans) {
       newStatus[i] = EStatus.CORRECT;
       setPoint(point + 1);
-    } 
-    else {
+    } else {
       newStatus[ans] = EStatus.CORRECT;
       newStatus[i] = EStatus.IN_CORRECT;
     }
@@ -82,7 +81,7 @@ const QuizzScreen = () => {
         <Image
           alignSelf="center"
           alt="img-ques"
-          style = {styles.ima}
+          style={styles.ima}
           source={quizzes[currQues].image}
         />
         <VStack px="$12" gap="$10">
@@ -113,7 +112,7 @@ const QuizzScreen = () => {
           disabled={!next}
           w={"$full"}
           rounded={"$xl"}
-          bg="#3758F9"
+          bg="$primary600"
           onPress={onNext}
           opacity={!next ? 0.5 : 1}
         >
@@ -159,13 +158,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   ima: {
-
     height: Math.round(
-      (159 / 290) * Math.round( Dimensions.get("screen").width)
+      (159 / 290) * Math.round(Dimensions.get("screen").width)
     ),
-    width: Math.round(
-      0.8*Dimensions.get("screen").width
-    ),
+    width: Math.round(1 * Dimensions.get("screen").width),
     resizeMode: "contain",
-  }
+  },
 });

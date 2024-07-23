@@ -14,11 +14,12 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { CloseCircle, TickCircle } from "iconsax-react-native";
 import React from "react";
+import { EData } from "../../db/home-data";
 
 type Props = {
   showModal: boolean;
   setShowModal: any;
-  idAnimal: string;
+  idData: string;
   isWinner: boolean;
 };
 
@@ -37,12 +38,13 @@ const statusTitle = (winner: boolean) => {
 
 const FinishModal = (props: Props) => {
   const navigation = useNavigation<any>();
-  const { showModal, setShowModal, isWinner, idAnimal } = props;
+  const { showModal, setShowModal, isWinner, idData } = props;
   const handleBtn = () => {
     setShowModal(false);
     if (isWinner) {
-      navigation.navigate("DetailAnimal", {
-        animalName: idAnimal,
+      navigation.navigate("DetailCommon", {
+        id: idData,
+        dataType: EData.ALL,
       });
     } else {
       navigation.navigate("TabNavigation");

@@ -3,12 +3,13 @@ import React from "react";
 import { HStack, Image, ScrollView, Text, VStack } from "@gluestack-ui/themed";
 import { EDisplayType } from "../../../types";
 import { useNavigation } from "@react-navigation/native";
-import { IGroupSea, groupSea, titleGroupSea } from "../../../db/slide-data";
+import { EData, IData } from "../../../db/home-data";
 
 type Props = {
-  data: IGroupSea[];
+  data: IData[];
   displayType: EDisplayType;
   title: string;
+  dataType: EData;
 };
 
 const { width } = Dimensions.get("screen");
@@ -29,7 +30,7 @@ const SIZE_TYPE: {
   },
 };
 
-const CardList = ({ data, displayType, title }: Props) => {
+const CardList = ({ data, displayType, title, dataType }: Props) => {
   const navigation = useNavigation<any>();
   return (
     <VStack>
@@ -37,30 +38,40 @@ const CardList = ({ data, displayType, title }: Props) => {
         <Text fontWeight="$semibold" fontSize={"$xl"} color="$primary600">
           {title}
         </Text>
-        <Text fontWeight="$normal" fontSize={"$sm"} color="$textDark500">
+        {/* <Text fontWeight="$normal" fontSize={"$sm"} color="$textDark500">
           Xem tất cả
-        </Text>
+        </Text> */}
       </HStack>
       <ScrollView w={"$full"} horizontal showsHorizontalScrollIndicator={false}>
         <HStack gap={"$4"}>
-          {data.map((item, index) => (
+          {data.map((item: IData, index: number) => (
             <TouchableOpacity
               key={index}
               onPress={() =>
-                navigation.navigate("Detail", {
-                  groupSeaName: item.id,
+                navigation.navigate("DetailCommon", {
+                  id: item.id,
+                  dataType: dataType,
                 })
               }
             >
               <VStack gap={"$3"} width={SIZE_TYPE[displayType].widthSize}>
                 <Image
-                  source={{ uri: item.image }}
+                  source={
+                    typeof item.image == "string"
+                      ? { uri: item.image }
+                      : item.image
+                  }
                   width={SIZE_TYPE[displayType].widthSize}
                   height={SIZE_TYPE[displayType].heightSize}
                   rounded={"$xl"}
                   alt="image"
                 />
-                <Text fontSize={"$md"} fontWeight="$semibold">
+                <Text
+                  fontSize={"$md"}
+                  fontWeight="$semibold"
+                  ellipsizeMode="tail"
+                  numberOfLines={1}
+                >
                   {item.title}
                 </Text>
                 <Text

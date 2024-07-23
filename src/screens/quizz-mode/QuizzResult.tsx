@@ -75,7 +75,7 @@ const QuizzResult = () => {
         {route.params.point}/{route.params.length}
       </Text>
       <TouchableOpacity onPress={() => navigation.navigate("Quizz")}>
-        <Box bgColor="#3758F9" py={"$2.5"} px={"$8"} rounded={"$xl"}>
+        <Box bgColor="$primary600" py={"$2.5"} px={"$8"} rounded={"$xl"}>
           <Text color="$white">Tiếp tục học</Text>
         </Box>
       </TouchableOpacity>

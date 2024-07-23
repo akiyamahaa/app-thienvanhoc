@@ -70,21 +70,28 @@ export const puzzleData: IPuzzle[] = [
   {
     id: 1,
     image:
-      "https://tepbac.com/upload/news/ge_image/2021/05/pexels-photo-3361052_1621385094.jpg",
+      "https://skhcn.bacninh.gov.vn/documents/22549/69518/Hanh-tinh-thang-hang-2878-1710840354.jpg/c655ed90-327f-d1b4-1b66-c323a7c69046?t=1711122067305",
     mode: EMode.EASY,
-    result: ["camaptrang", "daubua"],
+    result: ["1", "8", "3"],
+  },
+  {
+    id: 4,
+    image:
+      "https://demo.org.vn/wp-content/uploads/2021/03/1-co-bao-nhieu-hanh-tinh-trong-he-mat-troi.jpg",
+    mode: EMode.EASY,
+    result: ["9", "2", "10"],
   },
   {
     id: 2,
     image:
-      "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2019/10/10/759376/Seaturtle.jpg",
+      "https://lh3.googleusercontent.com/proxy/hHhQ34i3uDWO1apOJ-Cv7J0WkZsaduV1p97VYWhgIoHoYFxexkSTz7nP7Was_XLenCA_M1kooIbOjhRupif586CVJP7vm_OcoNd4jEwGjzTD_A_DFdiGJ8IW0GU801WAbk-dt7jqKZ7GcGQtW7S2xIBXZOUo",
     mode: EMode.MEDIUM,
-    result: ["daubua"],
+    result: ["5", "3", "2"],
   },
   {
     id: 3,
-    image: "https://ktmt.vnmediacdn.com/images/2022/02/17/42-1645067044-44.jpg",
+    image: "https://vnn-imgs-f.vgcloud.vn/2018/02/02/15/kham-pha-vong-trong-he-ma-t-tro-i-phan-2.jpg",
     mode: EMode.HARD,
-    result: ["daubua"],
+    result: ["7", "10", "9"],
   },
 ];

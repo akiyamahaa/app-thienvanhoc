@@ -15,24 +15,21 @@ import { StatusBar } from "expo-status-bar";
 import { ArrowLeft2 } from "iconsax-react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../../navigations/config";
-import { EData, ISlideData, headerSlideData } from "../../db/home-data";
+import { allData, EData, IData } from "../../db/home-data";
 
 type Props = {} & NativeStackScreenProps<RootStackParams, "DetailCommon">;
 
 const getDataFromType = (type: EData) => {
-  switch (type) {
-    case EData.HEADER_SLIDE: {
-      return headerSlideData;
-    }
-    default:
-      return null;
+  if (allData[type]) {
+    return allData[type];
   }
+  return null;
 };
 
 const DetailCommon = ({ navigation, route }: Props) => {
   const { id, dataType } = route.params;
   const listData = getDataFromType(dataType);
-  const [data] = useState(listData ? listData[id] : ({} as ISlideData));
+  const [data] = useState(listData ? listData[id] : ({} as IData));
 
   if (!data) {
     return <Box flex={1} />;
@@ -53,7 +50,7 @@ const DetailCommon = ({ navigation, route }: Props) => {
               variant="link"
               size="lg"
               px="$2"
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate("TabNavigation")}
             >
               <ButtonIcon as={ArrowLeft2} size="xl" color="$white" />
             </Button>
@@ -72,14 +69,14 @@ const DetailCommon = ({ navigation, route }: Props) => {
               {data.description}
             </Text>
           </VStack>
-          {data.detail.map((contentPart, idx) => (
-            <VStack gap="$2" key={`${contentPart.subTitle}-${idx}`}>
+          {data.content.map((contentPart, idx) => (
+            <VStack gap="$2" key={`${contentPart.title}-${idx}`}>
               <Text
                 color="$primary600"
                 fontSize={"$lg"}
                 fontWeight={"$semibold"}
               >
-                {contentPart.subTitle}
+                {contentPart.title}
               </Text>
               {contentPart.image && (
                 <Image
@@ -91,7 +88,7 @@ const DetailCommon = ({ navigation, route }: Props) => {
                 />
               )}
               <Text color="$coolGray800" fontSize={"$md"} lineHeight={24}>
-                {contentPart.content}
+                {contentPart.body}
               </Text>
             </VStack>
           ))}

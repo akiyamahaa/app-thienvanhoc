@@ -1,10 +1,10 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { Box, ImageBackground, Text, VStack } from "@gluestack-ui/themed";
-import { EData, ISlideData } from "../../../db/home-data";
+import { EData, IData } from "../../../db/home-data";
 import { useNavigation } from "@react-navigation/native";
 
-export default function MemberImage(props: ISlideData) {
+export default function MemberImage(props: IData) {
   const navigation = useNavigation<any>();
   const { image, title, description } = props;
 

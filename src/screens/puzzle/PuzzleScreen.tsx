@@ -65,7 +65,7 @@ const PuzzleScreen = ({ navigation, route }: Props) => {
         showModal={showFinish}
         setShowModal={setShowFinish}
         isWinner={remainingTime > 0}
-        idAnimal={getRandomElement(myPuzzle.result)}
+        idData={getRandomElement(myPuzzle.result)}
       />
       <PuzzleModal show={show} setShow={setShow} source={source} />
       <Box gap="$2">
